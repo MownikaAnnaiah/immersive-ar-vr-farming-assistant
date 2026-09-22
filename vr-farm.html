@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Smart VR Farming Prototype
+    </title>
+
+    <!-- A-FRAME -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <style>
+
+        body{
+            margin:0;
+            overflow:hidden;
+            font-family:Arial,sans-serif;
+        }
+
+        /* BACK BUTTON */
+
+        .back-button{
+
+            position:absolute;
+
+            top:20px;
+            left:20px;
+
+            z-index:999;
+
+            padding:14px 30px;
+
+            border:none;
+
+            border-radius:40px;
+
+            background:#38b000;
+
+            color:white;
+
+            font-size:16px;
+
+            font-weight:bold;
+
+            cursor:pointer;
+
+            box-shadow:0 0 20px rgba(56,176,0,0.7);
+
+            transition:0.3s;
+        }
+
+        .back-button:hover{
+
+            transform:scale(1.05);
+        }
+
+        /* TITLE */
+
+        .title{
+
+            position:absolute;
+
+            top:20px;
+            right:20px;
+
+            z-index:999;
+
+            padding:15px 28px;
+
+            border-radius:18px;
+
+            background:rgba(255,255,255,0.15);
+
+            backdrop-filter:blur(10px);
+
+            color:white;
+
+            font-size:20px;
+
+            font-weight:bold;
+        }
+
+        /* INFO BOX */
+
+        .info-box{
+
+            position:absolute;
+
+            bottom:20px;
+            left:50%;
+
+            transform:translateX(-50%);
+
+            z-index:999;
+
+            width:500px;
+
+            max-width:92%;
+
+            padding:20px;
+
+            border-radius:20px;
+
+            background:rgba(0,0,0,0.45);
+
+            backdrop-filter:blur(10px);
+
+            color:white;
+
+            line-height:1.8;
+
+            text-align:center;
+        }
+
+        .highlight{
+
+            color:#70e000;
+
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- BACK BUTTON -->
+
+    <a href="farmindex.html">
+
+        <button class="back-button">
+
+            ⬅ Back To Home
+
+        </button>
+
+    </a>
+
+    <!-- TITLE -->
+
+    <div class="title">
+
+        🌾 Smart VR Farming Assistant
+
+    </div>
+
+    <!-- INFO -->
+
+    <div class="info-box">
+
+        Explore the smart farming environment and identify the
+
+        <span class="highlight">
+        infected crop zone
+        </span>.
+
+        <br><br>
+
+        Learn disease symptoms and treatment methods
+        through immersive VR visualization.
+
+    </div>
+
+    <!-- VR SCENE -->
+
+    <a-scene>
+
+        <!-- SKY -->
+
+        <a-sky color="#87CEEB"></a-sky>
+
+        <!-- SUN -->
+
+        <a-sphere
+
+            position="0 35 -60"
+
+            radius="7"
+
+            color="#FFD700">
+
+        </a-sphere>
+
+        <!-- GROUND -->
+
+        <a-plane
+
+            rotation="-90 0 0"
+
+            width="600"
+            height="600"
+
+            color="#5fa83f">
+
+        </a-plane>
+
+        <!-- CAMERA -->
+
+        <a-entity
+
+            position="0 6 35"
+
+            wasd-controls
+            look-controls>
+
+            <a-camera></a-camera>
+
+        </a-entity>
+
+        <!-- ROAD -->
+
+        <a-plane
+
+            position="0 0.02 -40"
+
+            rotation="-90 0 0"
+
+            width="14"
+
+            height="150"
+
+            color="#b89b72">
+
+        </a-plane>
+
+        <!-- FARM HOUSE -->
+
+        <a-gltf-model
+
+            src="models/barn.glb"
+
+            position="-40 0 -65"
+
+            scale="18 18 18"
+
+            rotation="0 30 0">
+
+        </a-gltf-model>
+
+        <!-- TRACTOR -->
+
+        <a-gltf-model
+
+            src="models/tractor.glb"
+
+            position="28 0 -35"
+
+            scale="2.5 2.5 2.5"
+
+            rotation="0 -60 0">
+
+        </a-gltf-model>
+
+        <!-- FARMER -->
+
+        <a-gltf-model
+
+            src="models/farmer.glb"
+
+            position="-5 0 -25"
+
+            scale="12 12 12"
+
+            rotation="0 20 0">
+
+        </a-gltf-model>
+
+        <!-- COW -->
+
+        <a-gltf-model
+
+            src="models/cow.glb"
+
+            position="-30 0 -35"
+
+            scale="0.7 0.7 0.7"
+
+            rotation="0 90 0">
+
+        </a-gltf-model>
+
+        <!-- TREES LEFT -->
+
+        <a-gltf-model
+
+            src="models/trees.glb"
+
+            position="-70 0 -80"
+
+            scale="7 7 7">
+
+        </a-gltf-model>
+
+        <!-- TREES RIGHT -->
+
+        <a-gltf-model
+
+            src="models/trees.glb"
+
+            position="70 0 -80"
+
+            scale="7 7 7">
+
+        </a-gltf-model>
+
+        <!-- CORN FIELD -->
+
+        <a-gltf-model
+
+            src="models/cornfield.glb"
+
+            position="0 0 -75"
+
+            scale="5 5 5">
+
+        </a-gltf-model>
+
+        <!-- DISEASE ZONE -->
+
+        <a-cylinder
+
+            position="0 4 -65"
+
+            radius="3"
+
+            height="8"
+
+            color="red"
+
+            opacity="0.8"
+
+            animation="
+            property: scale;
+            to: 1.08 1.08 1.08;
+            dir: alternate;
+            loop: true;
+            dur: 1000">
+
+        </a-cylinder>
+
+        <!-- WARNING TEXT -->
+
+        <a-text
+
+            value="⚠ Disease Detected"
+
+            position="-10 14 -65"
+
+            color="red"
+
+            width="40"
+
+            align="center">
+
+        </a-text>
+
+        <!-- TREATMENT PANEL -->
+
+        <a-plane
+
+            position="0 10 -45"
+
+            width="20"
+
+            height="7"
+
+            color="#14532d"
+
+            opacity="0.92">
+
+        </a-plane>
+
+        <!-- PANEL TEXT -->
+
+        <a-text
+
+            value="Treatment Recommendation\n\nApply Fungicide Every 5 Days\n\nMonitor Crop Health Regularly"
+
+            position="-8 11 -44.5"
+
+            color="white"
+
+            width="40"
+
+            align="left">
+
+        </a-text>
+
+    </a-scene>
+
+</body>
+
+</html>

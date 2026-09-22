@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Smart AR Crop Disease Scanner
+    </title>
+
+    <!-- A-FRAME -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <!-- AR.JS -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+
+    <style>
+
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow:hidden;
+}
+
+#backBtn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    z-index:1000;
+
+    padding:12px 25px;
+
+    border:none;
+    border-radius:30px;
+
+    background:#22c55e;
+    color:white;
+
+    cursor:pointer;
+    font-size:16px;
+}
+
+.title{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    z-index:1000;
+
+    font-size:28px;
+    font-weight:bold;
+
+    color:#7CFC00;
+}
+
+.camera-container{
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#camera{
+
+    width:90%;
+    max-width:900px;
+
+    border-radius:20px;
+
+    border:4px solid #22c55e;
+
+    box-shadow:0 0 30px lime;
+}
+
+.controls{
+
+    position:absolute;
+
+    bottom:160px;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    z-index:1000;
+}
+
+.controls button{
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+}
+
+#resultBox{
+
+    position:absolute;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:95%;
+    max-width:600px;
+
+    background:rgba(15,23,42,.88);
+
+    border:3px solid #22c55e;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    color:white;
+
+    text-align:left;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 0 25px rgba(34,197,94,.5);
+
+    transition:.4s;
+
+    z-index:1000;
+}
+#statusText{
+
+    margin-top:15px;
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    letter-spacing:.4px;
+}
+    </style>
+
+</head>
+
+<body>
+
+<!-- Back Button -->
+<a href="farmindex.html">
+    <button id="backBtn">
+        ← Back
+    </button>
+</a>
+
+<!-- Title -->
+<div class="title">
+    🌿 AI AR Crop Scanner
+</div>
+
+<!-- Camera -->
+<div class="camera-container">
+
+    <video
+        id="camera"
+        autoplay
+        playsinline
+        muted>
+    </video>
+
+    <canvas
+        id="canvas"
+        style="display:none;">
+    </canvas>
+
+</div>
+
+<!-- Buttons -->
+<div class="controls">
+
+    <button id="captureBtn">
+
+        📷 Capture & Detect
+
+    </button>
+
+    <button
+        id="scanAgainBtn"
+        style="display:none;">
+
+        🔄 Scan Again
+
+    </button>
+
+</div>
+
+<!-- Result -->
+<div id="resultBox">
+
+    <h2 style="color:#7CFC00;text-align:center;">
+
+🤖 AI Disease Detection
+
+</h2>
+
+    <p id="statusText">
+
+        📷 Point camera at crop leaf
+
+    </p>
+
+</div>
+<script>
+
+const video = document.getElementById("camera");
+const canvas = document.getElementById("canvas");
+async function startCamera() {
+
+    try {
+
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: "environment"
+            },
+            audio: false
+        });
+
+        video.srcObject = stream;
+
+    } catch (err) {
+
+        console.error(err);
+        alert("Unable to access camera.");
+
+    }
+
+}
+
+startCamera();
+
+const captureBtn = document.getElementById("captureBtn");
+const scanAgainBtn = document.getElementById("scanAgainBtn");
+
+const resultBox = document.getElementById("statusText");
+
+captureBtn.onclick = async () => {
+
+    resultBox.innerHTML = "🔍 Detecting disease...";
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    const ctx = canvas.getContext("2d");
+
+    ctx.drawImage(
+        video,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    canvas.toBlob(async(blob)=>{
+
+        const formData = new FormData();
+
+        formData.append(
+            "image",
+            blob,
+            "leaf.jpg"
+        );
+
+        try{
+
+            const response =
+            
+            await fetch(
+                "http://127.0.0.1:5000/predict",
+                {
+                    method:"POST",
+                    body:formData
+                }
+            );
+
+            const data =
+            await response.json();
+
+    let treatment = "Consult agricultural expert.";
+
+// If backend says this isn't a crop leaf
+if(data.disease === "Not a Crop Leaf"){
+
+    const box = document.getElementById("resultBox");
+
+    box.style.borderColor = "#ff4444";
+    box.style.boxShadow = "0 0 35px #ff4444";
+
+    resultBox.innerHTML = `
+    ❌ <b>Not a Crop Leaf</b>
+
+    <br><br>
+
+    🌿 Please point the camera at a crop leaf.
+
+    <br><br>
+
+    📷 Face, hand, wall or other objects are not supported.
+    `;
+
+    captureBtn.style.display = "inline-block";
+    scanAgainBtn.style.display = "none";
+
+    return;
+}
+
+switch(data.disease){
+
+case "Corn_Downy_Mildew":
+    treatment = "Spray Metalaxyl + Mancozeb.";
+    break;
+
+case "Corn_Leaf_Blight":
+    treatment = "Spray Mancozeb fungicide.";
+    break;
+
+case "Corn_Rust":
+    treatment = "Spray Propiconazole fungicide.";
+    break;
+
+case "Groundnut_Aflatoxin":
+    treatment = "Harvest on time and dry pods properly.";
+    break;
+
+case "Groundnut_Stem_Nercosis":
+    treatment = "Control thrips and remove infected plants.";
+    break;
+
+case "Groundnut_Tikka_Leaf_Spot":
+    treatment = "Spray Carbendazim or Chlorothalonil.";
+    break;
+
+case "Mango_Anthracnose":
+    treatment = "Spray Copper Oxychloride.";
+    break;
+
+case "Mango_Bacterial_Canker":
+    treatment = "Use Copper-based bactericide.";
+    break;
+
+case "Mango_Powdery_Mildew":
+    treatment = "Spray Wettable Sulfur.";
+    break;
+
+case "Paddy_Blast_Disease":
+    treatment = "Spray Tricyclazole fungicide.";
+    break;
+
+case "Paddy_False_Smut":
+    treatment = "Spray Propiconazole before flowering.";
+    break;
+
+case "Paddy_Leaf_Scald":
+    treatment = "Apply balanced fertilizer and fungicide.";
+    break;
+
+case "Sugarcane_Red_Rot":
+    treatment = "Use disease-free seed cane.";
+    break;
+
+case "Sugarcane_Smut":
+    treatment = "Remove infected clumps and treat seed cane.";
+    break;
+
+case "Sugarcane_Wilt":
+    treatment = "Improve drainage and remove infected plants.";
+    break;
+
+case "Wheat_Loose_Smut":
+    treatment = "Use treated certified seeds.";
+    break;
+
+case "Wheat_Septoria_Leaf_Blotch":
+    treatment = "Spray Mancozeb or Propiconazole.";
+    break;
+
+case "Wheat_Stripe_Rust":
+    treatment = "Spray Propiconazole fungicide.";
+    break;
+
+}
+
+const box = document.getElementById("resultBox");
+
+// Red if it is not a crop leaf
+if(data.disease === "Not a Crop Leaf"){
+
+    box.style.borderColor = "#ff4444";
+    box.style.boxShadow = "0 0 35px #ff4444";
+
+}
+// Green for all detected crop diseases
+else{
+
+    box.style.borderColor = "#22c55e";
+    box.style.boxShadow = "0 0 35px #22c55e";
+
+}
+
+resultBox.innerHTML = `
+
+🌿 <b>Disease:</b> ${data.disease}
+
+<br><br>
+
+📊 <b>Confidence:</b>
+
+${(data.confidence*100).toFixed(2)}%
+
+<br><br>
+
+💊 <b>Treatment:</b>
+
+${treatment}
+
+`;
+captureBtn.style.display = "none";
+scanAgainBtn.style.display = "inline-block";
+
+}
+
+catch(err){
+
+    console.log(err);
+
+    resultBox.innerHTML =
+    "❌ AI Server not running";
+
+}
+
+},"image/jpeg");
+
+};
+
+scanAgainBtn.onclick = () => {
+
+    captureBtn.style.display = "inline-block";
+    scanAgainBtn.style.display = "none";
+
+    resultBox.innerHTML =
+    "📷 Point camera at crop leaf";
+
+    const box = document.getElementById("resultBox");
+
+    box.style.borderColor = "#22c55e";
+    box.style.boxShadow = "0 0 25px rgba(34,197,94,.5)";
+
+};
+
+</script>
+
+</body>
+
+
+
+</html>
