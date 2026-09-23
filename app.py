@@ -270,9 +270,9 @@ def ar_scanner():
     return render_template("ar-scanner.html")
 
 
-@app.route("/vr-farm.html")
-def vr_farm():
-    return render_template("vr-farm.html")
+@app.route("/vr-crops-added.html")
+def vr_crops_added():
+    return render_template("vr-crops-added.html")
 
 
 @app.route("/disease-details.html")
