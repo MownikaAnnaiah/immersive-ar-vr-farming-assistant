@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
 import tensorflow as tf
@@ -258,7 +258,7 @@ def predict():
 # ==========================================
 @app.route("/")
 def home():
-    return "Immersive AR and VR Farming Assistant Backend is Running Successfully!"
+    return render_template("farmindex.html")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1252 @@
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+/* BODY */
+body{
+    background:#f5fff5;
+}
+
+/* HEADER */
+header{
+
+    position:fixed;
+
+    top:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:96%;
+
+    padding:10px 22px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    background:rgba(35,45,35,0.45);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.35);
+
+    z-index:9999;
+
+}
+/* LOGO */
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:700;
+
+}
+
+.logo img{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+}
+nav{
+
+display:flex;
+
+gap:18px;
+
+align-items:center;
+
+}
+
+.logo i{
+    font-size:32px;
+}
+
+.logo h2{
+    font-size:22px;
+}
+
+/* NAVIGATION */
+nav{
+
+    display:flex;
+
+    gap:35px;
+}
+
+nav a:hover{
+
+    background:#4CAF50;
+
+    color:white;
+
+    border:1.5px solid #7CFC00;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 0 10px rgba(124,252,0,.7),
+    0 0 20px rgba(124,252,0,.4);
+
+}
+nav a{
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+padding:10px 18px;
+
+border-radius:40px;
+
+text-decoration:none;
+
+font-size:15px;
+
+font-weight:600;
+
+color:#ffffff;
+
+background:rgba(255,255,255,.08);
+
+border:1.5px solid rgba(124,252,0,.35);
+
+backdrop-filter:blur(12px);
+
+transition:.3s ease;
+
+}
+nav a.active{
+
+background:#4CAF50;
+
+color:white;
+
+box-shadow:
+
+0 0 12px rgba(124,252,0,.5);
+
+}
+/* HERO SECTION */
+.hero {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #78b7d4;
+}
+/* ==============================
+   3D FARM BACKGROUND
+   ============================== */
+
+.farm-3d-background {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    z-index: 0;
+
+    pointer-events: auto;
+}
+
+/* Dark transparent layer */
+.farm-background-overlay {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.12),
+            rgba(0, 0, 0, 0.18)
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+    radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.03) 65%,
+    rgba(0,0,0,0.12));
+
+    z-index:1;
+}
+/* HERO CONTENT */
+.hero-content{
+
+    max-width:900px;
+
+    color:white;
+}
+
+.hero-content h1{
+
+    font-size:68px;
+
+    margin-bottom:25px;
+
+    line-height:1.2;
+}
+
+.hero-content p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+/* HERO BUTTON */
+.hero-btn{
+
+    padding:16px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#38b000;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+
+    background:#14532d;
+
+    transform:scale(1.05);
+}
+
+/* CROPS SECTION */
+.crops{
+
+    width:100%;
+
+    padding:100px 8%;
+}
+
+/* TITLE */
+.section-title{
+
+    text-align:center;
+
+    font-size:52px;
+
+    color:#14532d;
+
+    margin-bottom:60px;
+}
+
+/* GRID */
+.crop-container{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+}
+
+/* CARD */
+.crop-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+    transition:0.4s;
+}
+
+.crop-card:hover{
+
+    transform:translateY(-10px);
+}
+
+/* IMAGE */
+.crop-card img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+}
+
+/* INFO */
+.crop-info{
+
+    padding:25px;
+}
+
+.crop-info h2{
+
+    font-size:30px;
+
+    color:#14532d;
+
+    margin-bottom:15px;
+}
+
+.crop-info p{
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    color:#444;
+
+    margin-bottom:25px;
+}
+
+/* BUTTON */
+.crop-info button{
+
+    padding:12px 28px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#38b000;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.crop-info button:hover{
+
+    background:#14532d;
+}
+
+/* AR + VR */
+.ar-section,
+.vr-section{
+
+    padding:100px 8%;
+
+    text-align:center;
+}
+
+.coming-text{
+
+    font-size:24px;
+
+    color:#555;
+}
+
+/* DETAILS HERO */
+.details-hero{
+
+    width:100%;
+    height:60vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+
+    url('wheat.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+/* DETAILS CONTENT */
+.details-content{
+
+    max-width:850px;
+
+    color:white;
+}
+
+.details-content h1{
+
+    font-size:65px;
+
+    margin-bottom:20px;
+}
+
+.details-content p{
+
+    font-size:22px;
+
+    line-height:1.8;
+}
+
+/* DISEASE INFO */
+.disease-info{
+
+    padding:100px 8%;
+}
+
+/* CONTAINER */
+.disease-container{
+
+    display:flex;
+    justify-content:center;
+}
+
+/* CARD */
+.disease-card{
+
+    width:100%;
+
+    max-width:1100px;
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+}
+
+/* IMAGE */
+.disease-card img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+/* TEXT */
+.disease-text{
+
+    padding:40px;
+}
+
+.disease-text h2{
+
+    font-size:40px;
+
+    color:#14532d;
+
+    margin-bottom:20px;
+}
+
+.disease-text p{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#444;
+}
+
+/* PESTICIDES */
+.pesticides{
+
+    padding:100px 8%;
+
+    background:#f5fff5;
+}
+
+/* GRID */
+.pesticide-container{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+}
+
+/* CARD */
+.pesticide-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+    transition:0.3s;
+}
+
+.pesticide-card:hover{
+
+    transform:translateY(-10px);
+}
+
+/* TITLE */
+.pesticide-card h2{
+
+    color:#14532d;
+
+    margin-bottom:20px;
+}
+
+/* TEXT */
+.pesticide-card p{
+
+    line-height:1.9;
+
+    margin-bottom:15px;
+
+    color:#444;
+}
+
+/* SIMULATION */
+.simulation{
+
+    padding:100px 8%;
+}
+
+/* VIDEO PLACEHOLDER */
+.video-placeholder{
+
+    width:100%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:80px 20px;
+
+    text-align:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.video-placeholder i{
+
+    font-size:80px;
+
+    color:#38b000;
+
+    margin-bottom:25px;
+}
+
+.video-placeholder h2{
+
+    font-size:38px;
+
+    color:#14532d;
+
+    margin-bottom:20px;
+}
+
+.video-placeholder p{
+
+    font-size:20px;
+
+    color:#555;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    header{
+
+        padding:0 20px;
+    }
+
+    nav{
+
+        display:none;
+    }
+
+    .hero-content h1,
+    .details-content h1{
+
+        font-size:42px;
+    }
+
+    .hero-content p,
+    .details-content p{
+
+        font-size:18px;
+    }
+
+    .disease-card{
+
+        grid-template-columns:1fr;
+    }
+}
+
+/* AI SECTION */
+.ai-section{
+
+    padding:100px 8%;
+
+    background:#f5fff5;
+}
+
+/* CONTAINER */
+.ai-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:40px;
+
+    margin-top:50px;
+}
+
+/* BOXES */
+.upload-box,
+.result-box{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* HEADINGS */
+.upload-box h2,
+.result-box h2{
+
+    color:#14532d;
+
+    margin-bottom:25px;
+}
+
+/* FILE INPUT */
+.upload-box input{
+
+    margin-bottom:25px;
+}
+
+/* IMAGE PREVIEW */
+#previewImage{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    display:none;
+
+    margin-bottom:25px;
+}
+
+/* BUTTON */
+.upload-box button{
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#38b000;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.upload-box button:hover{
+
+    background:#14532d;
+}
+
+/* RESULT */
+#resultTitle{
+
+    font-size:32px;
+
+    color:#14532d;
+
+    margin-bottom:20px;
+}
+
+#resultText{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#444;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .ai-container{
+
+        grid-template-columns:1fr;
+    }
+}
+/* AR SECTION */
+.ar-section{
+
+    padding:100px 8%;
+
+    background:#f5fff5;
+}
+
+/* CONTAINER */
+.scanner-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+}
+
+/* SCANNER BOX */
+.scanner-box{
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+/* FRAME */
+.scanner-frame{
+
+    width:420px;
+    height:420px;
+
+    border:6px solid #38b000;
+
+    border-radius:25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.2)),
+
+    url('wheat.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    box-shadow:0 5px 25px rgba(0,0,0,0.2);
+}
+
+/* SCAN LINE */
+.scan-line{
+
+    width:100%;
+    height:6px;
+
+    background:#00ff66;
+
+    position:absolute;
+
+    top:0;
+
+    animation:scan 3s linear infinite;
+}
+
+/* ANIMATION */
+@keyframes scan{
+
+    0%{
+        top:0;
+    }
+
+    100%{
+        top:100%;
+    }
+}
+
+/* INFO */
+.scanner-info h2{
+
+    font-size:48px;
+
+    color:#14532d;
+
+    margin-bottom:25px;
+}
+
+/* TEXT */
+.scanner-info p{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#444;
+
+    margin-bottom:35px;
+}
+
+/* BUTTON */
+.scanner-info button{
+
+    padding:16px 35px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#38b000;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.scanner-info button:hover{
+
+    background:#14532d;
+
+    transform:scale(1.05);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .scanner-container{
+
+        grid-template-columns:1fr;
+    }
+
+    .scanner-frame{
+
+        width:100%;
+        height:320px;
+    }
+
+    .scanner-info{
+
+        text-align:center;
+    }
+}
+/* SIMULATION SECTION */
+.simulation{
+
+    padding:100px 8%;
+
+    background:#f5fff5;
+}
+
+/* BOX */
+.simulation-box{
+
+    background:white;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 25px rgba(0,0,0,0.1);
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+/* VIDEO */
+#simulationVideo{
+
+    width:100%;
+
+    height:550px;
+
+    object-fit:cover;
+
+    background:black;
+}
+
+/* TEXT AREA */
+.simulation-text{
+
+    padding:40px;
+}
+
+/* TITLE */
+#simulationTitle{
+
+    font-size:40px;
+
+    color:#14532d;
+
+    margin-bottom:20px;
+}
+
+/* DESCRIPTION */
+#simulationDescription{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#444;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    #simulationVideo{
+
+        height:280px;
+    }
+
+    #simulationTitle{
+
+        font-size:28px;
+    }
+
+    #simulationDescription{
+
+        font-size:17px;
+    }
+}
+/* =========================
+   PREMIUM CROP CARD EFFECTS
+========================= */
+
+.crop-card{
+
+    transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+/* HOVER LIFT */
+.crop-card:hover{
+
+    transform:
+    translateY(-12px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* IMAGE ANIMATION */
+.crop-card img{
+
+    transition:
+    transform 0.5s ease;
+}
+
+.crop-card:hover img{
+
+    transform:
+    scale(1.08);
+}
+
+/* BUTTON EFFECT */
+.crop-card button{
+
+    transition:
+    all 0.3s ease;
+}
+
+.crop-card button:hover{
+
+    background:#14532d;
+
+    color:white;
+
+    transform:
+    scale(1.05);
+}
+
+/* SMOOTH SECTION */
+section{
+
+    scroll-behavior:smooth;
+}
+
+
+
+/* CONTENT ABOVE OVERLAY */
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* HERO TITLE */
+.hero-content h1{
+
+    text-shadow:
+    0 5px 15px rgba(0,0,0,0.5);
+
+    animation:
+    fadeUp 1.2s ease;
+}
+
+/* HERO PARAGRAPH */
+.hero-content p{
+
+    animation:
+    fadeUp 1.8s ease;
+}
+
+/* HERO BUTTON */
+.hero-btn{
+
+    box-shadow:
+    0 10px 25px rgba(56,176,0,0.35);
+
+    animation:
+    fadeUp 2.2s ease;
+}
+
+/* BUTTON HOVER */
+.hero-btn:hover{
+
+    transform:
+    scale(1.08);
+
+    box-shadow:
+    0 12px 30px rgba(20,83,45,0.5);
+}
+
+/* FADE ANIMATION */
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(40px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+    }
+}
+/* =========================
+   DISEASE CARD MOBILE UI
+========================= */
+
+.disease-card{
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:flex-start;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    margin-bottom:30px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,0.1);
+
+    flex-wrap:wrap;
+}
+
+/* IMAGE */
+.disease-image img{
+
+    width:220px;
+
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+}
+
+/* DETAILS */
+.disease-details{
+
+    flex:1;
+
+    min-width:250px;
+}
+
+.disease-details h2{
+
+    color:#14532d;
+
+    margin-bottom:15px;
+}
+
+.disease-details p{
+
+    line-height:1.8;
+
+    color:#333;
+}
+
+/* VIDEO */
+.disease-video video{
+
+    width:260px;
+
+    border-radius:15px;
+}
+.language-selector select{
+
+padding:12px 18px;
+
+border-radius:40px;
+
+background:rgba(255,255,255,.12);
+
+color:white;
+
+border:1px solid rgba(255,255,255,.18);
+
+backdrop-filter:blur(12px);
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+/* MOBILE */
+@media(max-width:900px){
+
+    .disease-card{
+
+        flex-direction:column;
+    }
+
+    .disease-image img{
+
+        width:100%;
+        height:auto;
+    }
+
+    .disease-video video{
+
+        width:100%;
+    }
+
+}
+/* Hide extra bottom navigation */
+.bottom-nav {
+    display: none !important;
+}
