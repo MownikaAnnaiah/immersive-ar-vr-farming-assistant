@@ -13,7 +13,7 @@
     </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="farm.css">
+   <link rel="stylesheet" href="{{ url_for('static', filename='farm.css') }}">
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet"
@@ -145,9 +145,7 @@
 
             <!-- CORN -->
             <div class="crop-card">
-
-                <img src="corn.jpg"
-                alt="Corn">
+<img src="{{ url_for('static', filename='corn.jpg') }}" alt="Corn">
 
                 <div class="crop-info">
 
@@ -181,10 +179,7 @@
 
             <!-- MANGO -->
             <div class="crop-card">
-
-                <img src="mango.jpg"
-                alt="Mango">
-
+<img src="{{ url_for('static', filename='mango.jpg') }}" alt="Mango">
                 <div class="crop-info">
 
                     <h2 id="mangoTitle">
@@ -218,8 +213,7 @@
             <!-- PADDY -->
             <div class="crop-card">
 
-                <img src="paddy.jpg"
-                alt="Paddy">
+                <img src="{{ url_for('static', filename='paddy.jpg') }}" alt="Paddy">
 
                 <div class="crop-info">
 
@@ -254,8 +248,8 @@
             <!-- GROUNDNUT -->
             <div class="crop-card">
 
-                <img src="groundnut.jpg"
-                alt="Groundnut">
+                <img src="{{ url_for('static', filename='groundnut.jpg') }}" alt="Groundnut">
+              
 
                 <div class="crop-info">
 
@@ -289,8 +283,8 @@
             <!-- WHEAT -->
             <div class="crop-card">
 
-                <img src="wheat.jpg"
-                alt="Wheat">
+                <img src="{{ url_for('static', filename='wheat.jpg') }}" alt="Wheat">
+               
 
                 <div class="crop-info">
 
@@ -324,8 +318,7 @@
             <!-- SUGARCANE -->
             <div class="crop-card">
 
-                <img src="sugarcane.jpg"
-                alt="Sugarcane">
+               <img src="{{ url_for('static', filename='sugarcane.jpg') }}" alt="sugarcane">
 
                 <div class="crop-info">
 
@@ -408,12 +401,12 @@ async function detectDisease() {
 
   try {
     const response = await fetch(
-        "http://127.0.0.1:5000/predict",
-        {
-            method: "POST",
-            body: formData
-        }
-    );
+    "/predict",
+    {
+        method: "POST",
+        body: formData
+    }
+);
 
     const data = await response.json();
 
@@ -621,7 +614,7 @@ function changeLanguage() {
 </script>
 
 </div>
-    <script src="farm.js"></script>
+   <script src="{{ url_for('static', filename='farm.js') }}"></script>
 
 </body>
 
