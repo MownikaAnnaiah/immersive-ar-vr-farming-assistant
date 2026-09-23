@@ -256,6 +256,9 @@ def predict():
 # ==========================================
 # RUN FLASK SERVER
 # ==========================================
+@app.route("/")
+def home():
+    return "Immersive AR and VR Farming Assistant Backend is Running Successfully!"
 
 if __name__ == "__main__":
     import os
