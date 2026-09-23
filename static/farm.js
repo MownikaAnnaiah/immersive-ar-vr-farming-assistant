@@ -13,9 +13,9 @@ const diseaseDatabase = {
                 telugu:"ఆంత్రాక్నోస్"
             },
 
-            image:"disease-images/m-anthracnose.jpg",
-
-            video:"simulation-videos/m-anthracnose.mp4",
+ image:"/static/disease-images/m-anthracnose.jpg",          
+video:"/static/simulation-videos/m-anthracnose.mp4",
+           
 
             cause:{
                 english:"Fungus",
@@ -46,9 +46,9 @@ const diseaseDatabase = {
                 telugu:"పౌడరీ మిల్డ్యూ"
             },
 
-            image:"disease-images/m-powdery.jpg",
+          
 
-            video:"simulation-videos/m-powderymildew.mp4",
+        video:"/static/simulation-videos/m-powderymildew.mp4",
 
             cause:{
                 english:"Fungus",
@@ -79,9 +79,9 @@ const diseaseDatabase = {
                 telugu:"బాక్టీరియల్ క్యాంకర్"
             },
 
-            image:"disease-images/m-canker.jpg",
+            image:"/static/disease-images/m-canker.jpg",
 
-            video:"simulation-videos/m-canker.mp4",
+            video:"/static/simulation-videos/m-canker.mp4",
 
             cause:{
                 english:"Bacteria",
@@ -120,9 +120,9 @@ const diseaseDatabase = {
                 telugu:"లూజ్ స్మట్"
             },
 
-            image:"disease-images/w-loosesmut.jpg",
+            image:"/static/disease-images/w-loosesmut.jpg",
 
-            video:"simulation-videos/w-loosesmut.mp4",
+            video:"/static/simulation-videos/w-loosesmut.mp4",
 
             cause:{
                 english:"Fungus",
@@ -155,7 +155,7 @@ const diseaseDatabase = {
 
             image:"disease-images/w-septoria.jpg",
 
-            video:"simulation-videos/w-septoria.mp4",
+            video:"/static/simulation-videos/w-septoria.mp4",
 
             cause:{
                 english:"Fungus",
@@ -186,9 +186,9 @@ const diseaseDatabase = {
                 telugu:"స్ట్రైప్ రస్ట్"
             },
 
-            image:"disease-images/w-striperust.jpg",
+            image:"/static/disease-images/w-striperust.jpg",
 
-            video:"simulation-videos/w-striperust.mp4",
+            video:"/static/simulation-videos/w-striperust.mp4",
 
             cause:{
                 english:"Fungus",
@@ -227,9 +227,9 @@ const diseaseDatabase = {
                 telugu:"బ్లాస్ట్ వ్యాధి"
             },
 
-            image:"disease-images/p-blast.jpg",
+            image:"/static/disease-images/p-blast.jpg",
 
-            video:"simulation-videos/p-blast.mp4",
+            video:"/static/simulation-videos/p-blast.mp4",
 
             cause:{
                 english:"Fungus",
@@ -260,9 +260,9 @@ const diseaseDatabase = {
                 telugu:"ఫాల్స్ స్మట్"
             },
 
-            image:"disease-images/p-falsesmut.jpg",
+            image:"/static/disease-images/p-falsesmut.jpg",
 
-            video:"simulation-videos/p-falsesmut.mp4",
+            video:"/static/simulation-videos/p-falsesmut.mp4",
 
             cause:{
                 english:"Fungus",
@@ -293,9 +293,9 @@ const diseaseDatabase = {
                 telugu:"లీఫ్ స్కాల్డ్"
             },
 
-            image:"disease-images/p-leafscald.jpg",
+            image:"/static/disease-images/p-leafscald.jpg",
 
-            video:"simulation-videos/p-leafscald.mp4",
+            video:"/static/simulation-videos/p-leafscald.mp4",
 
             cause:{
                 english:"Fungus",
@@ -334,9 +334,9 @@ const diseaseDatabase = {
                 telugu:"అఫ్లాటాక్సిన్"
             },
 
-            image:"disease-images/g-aflatoxin.jpg",
+            image:"/static/disease-images/g-aflatoxin.jpg",
 
-            video:"simulation-videos/g-aflatoxin.mp4",
+            video:"/static/simulation-videos/g-aflatoxin.mp4",
 
             cause:{
                 english:"Fungus",
@@ -367,9 +367,9 @@ const diseaseDatabase = {
                 telugu:"స్టెమ్ నెక్రోసిస్"
             },
 
-            image:"disease-images/g-stemnecrosis.jpg",
+            image:"/static/disease-images/g-stemnecrosis.jpg",
 
-            video:"simulation-videos/g-stemnecrosis.mp4",
+            video:"/static/simulation-videos/g-stemnecrosis.mp4",
 
             cause:{
                 english:"Virus",
@@ -402,7 +402,7 @@ const diseaseDatabase = {
 
             image:"disease-images/g-tikka.jpg",
 
-            video:"simulation-videos/g-tikka.mp4",
+            video:"/static/simulation-videos/g-tikka.mp4",
 
             cause:{
                 english:"Fungus",
@@ -441,9 +441,9 @@ const diseaseDatabase = {
                 telugu:"రెడ్ రాట్"
             },
 
-            image:"disease-images/s-redroot.jpg",
+          image:"/static/disease-images/s-redrot.jpg",
 
-            video:"simulation-videos/s-redrot.mp4",
+            video:"/static/simulation-videos/s-redrot.mp4",
 
             cause:{
                 english:"Fungus",
@@ -474,9 +474,9 @@ const diseaseDatabase = {
                 telugu:"స్మట్"
             },
 
-            image:"disease-images/s-smut.jpg",
+            image:"/static/disease-images/s-smut.jpg",
 
-            video:"simulation-videos/s-smut.mp4",
+            video:"/static/simulation-videos/s-smut.mp4",
 
             cause:{
                 english:"Fungus",
@@ -507,9 +507,9 @@ const diseaseDatabase = {
                 telugu:"విల్ట్"
             },
 
-            image:"disease-images/s-wilt.jpg",
+            image:"/static/disease-images/s-wilt.jpg",
 
-            video:"simulation-videos/s-wilt.mp4",
+            video:"/static/simulation-videos/s-wilt.mp4",
 
             cause:{
                 english:"Fungus",
@@ -548,9 +548,8 @@ const diseaseDatabase = {
                 telugu:"రస్ట్"
             },
 
-            image:"disease-images/c-rust.jpg",
-
-            video:"simulation-videos/c-rust.mp4",
+          image:"/static/disease-images/c-rust.jpg",
+          video:"/static/simulation-videos/c-rust.mp4",
 
             cause:{
                 english:"Fungus",
@@ -581,9 +580,9 @@ const diseaseDatabase = {
                 telugu:"లీఫ్ బ్లైట్"
             },
 
-            image:"disease-images/c-leafblight.jpg",
+            image:"/static/disease-images/c-leafblight.jpg",
 
-            video:"simulation-videos/c-leafblight.mp4",
+           video:"/static/simulation-videos/c-leafblight.mp4",
 
             cause:{
                 english:"Fungus",
@@ -614,9 +613,9 @@ const diseaseDatabase = {
                 telugu:"డౌనీ మిల్డ్యూ"
             },
 
-            image:"disease-images/c-downy.jpg",
+            image:"/static/disease-images/c-downy.jpg",
 
-            video:"simulation-videos/c-downymildew.mp4",
+           video:"/static/simulation-videos/c-downymildew.mp4",
 
             cause:{
                 english:"Fungus-like organism",
@@ -856,13 +855,13 @@ async function detectDisease() {
     resultText.innerText = "Please wait...";
 
     try {
-        const response = await fetch(
-            "http://127.0.0.1:5000/predict",
-            {
-                method: "POST",
-                body: formData
-            }
-        );
+      const response = await fetch(
+    "[http://127.0.0.1:5000/predict](http://127.0.0.1:5000/predict)",
+    {
+        method: "POST",
+        body: formData
+    }
+);
 
         const data = await response.json();
 
