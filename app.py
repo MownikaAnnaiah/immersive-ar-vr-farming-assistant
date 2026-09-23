@@ -256,9 +256,33 @@ def predict():
 # ==========================================
 # RUN FLASK SERVER
 # ==========================================
+# ==========================================
+# PAGE ROUTES
+# ==========================================
+
 @app.route("/")
 def home():
     return render_template("farmindex.html")
+
+
+@app.route("/ar-scanner.html")
+def ar_scanner():
+    return render_template("ar-scanner.html")
+
+
+@app.route("/vr-farm.html")
+def vr_farm():
+    return render_template("vr-farm.html")
+
+
+@app.route("/disease-details.html")
+def disease_details():
+    return render_template("disease-details.html")
+
+
+@app.route("/ar-farm-backup.html")
+def ar_farm_backup():
+    return render_template("ar-farm-backup.html")
 
 
 if __name__ == "__main__":

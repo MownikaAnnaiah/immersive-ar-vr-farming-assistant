@@ -401,12 +401,12 @@ async function detectDisease() {
 
   try {
     const response = await fetch(
-    "/predict",
-    {
-        method: "POST",
-        body: formData
-    }
-);
+        "http://127.0.0.1:5000/predict",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
 
     const data = await response.json();
 
@@ -500,7 +500,9 @@ async function detectDisease() {
 
                 </p>
 
-                <a href="ar-scanner.html">
+               <a href="{{ url_for('ar_scanner') }}">AR Scanner</a>
+
+
 
                     <button>
 
@@ -553,7 +555,9 @@ async function detectDisease() {
 
                 </p>
 
-                <a href="vr_crops_added/index.html">
+
+
+                 <a href="{{ url_for('vr_crops_added') }}">VR Training</a>
 
                     <button>
 
