@@ -483,13 +483,11 @@ scanAgainBtn.style.display = "inline-block";
 
 }
 
-catch(err){
-
-    console.log(err);
+catch (err) {
+    console.error("Prediction Error:", err);
 
     resultBox.innerHTML =
-    "❌ AI Server not running";
-
+        "❌ Prediction failed: " + err.message;
 }
 
 },"image/jpeg");
