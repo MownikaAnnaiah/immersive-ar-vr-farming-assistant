@@ -330,15 +330,18 @@ captureBtn.onclick = async () => {
 
         try{
 
-            const response =
-            
-           fetch("/predict", {
+       const response = await fetch("/predict", {
     method: "POST",
     body: formData
-})
+});
 
-            const data =
-            await response.json();
+if (!response.ok) {
+    throw new Error(`Server error: ${response.status}`);
+}
+
+const data = await response.json();
+
+console.log("AI Response:", data);
 
     let treatment = "Consult agricultural expert.";
 
