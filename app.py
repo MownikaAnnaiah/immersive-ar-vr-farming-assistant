@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 
 import tensorflow as tf
@@ -284,6 +284,13 @@ def disease_details():
 @app.route("/ar-farm-backup.html")
 def ar_farm_backup():
     return render_template("ar-farm-backup.html")
+
+@app.route("/paddy-farm/<path:filename>")
+def paddy_farm_files(filename):
+    return send_from_directory(
+        "static/VR_Paddy_Farm_Fullscreen",
+        filename
+    )
 
 
 if __name__ == "__main__":
