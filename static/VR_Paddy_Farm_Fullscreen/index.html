@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Immersive VR Paddy Farm</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+<script>
+AFRAME.registerComponent('face-origin',{
+  init:function(){
+    const p=this.el.object3D.position;
+    this.el.object3D.lookAt(0,0,0);
+  }
+});
+</script>
+</head>
+<body>
+<div id="hud">
+  <b>Immersive VR Paddy Farm</b>
+  <span>O = Overview &nbsp; | &nbsp; P = Walk Mode</span>
+</div>
+
+
+<a-scene
+  renderer="colorManagement:true; antialias:true; physicallyCorrectLights:true"
+  shadow="type:pcfsoft"
+  vr-mode-ui="enabled:true"
+  background="color:#78b7d4">
+
+  <a-assets>
+    <a-mixin id="wood" material="color:#8b5429;roughness:1"></a-mixin>
+  </a-assets>
+
+  <a-entity light="type:ambient;intensity:1.8;color:#fff5dc"></a-entity>
+  <a-entity light="type:directional;intensity:2.8;color:#fff1cc;castShadow:true"
+            position="-15 25 18"></a-entity>
+
+  <a-sky color="#78b7d4"></a-sky>
+  <a-entity id="world"></a-entity>
+
+  <!-- Default: elevated reference-like overview -->
+  <a-entity id="overviewRig" position="0 0 0">
+    <a-camera id="overviewCamera"
+      position="18 18 25"
+      rotation="-29 36 0"
+      look-controls="enabled:true"
+      wasd-controls="enabled:false"
+      active="true">
+      <a-cursor raycaster="objects:.clickable" fuse="false"
+                 material="color:#fff;shader:flat"></a-cursor>
+    </a-camera>
+  </a-entity>
+
+  <!-- Walk camera, initially disabled -->
+  <a-entity id="walkRig" position="0 1.7 12">
+    <a-camera id="walkCamera"
+      position="0 0 0"
+      rotation="0 180 0"
+      look-controls="pointerLockEnabled:true"
+      wasd-controls="acceleration:18"
+      active="false">
+      <a-cursor raycaster="objects:.clickable" fuse="false"
+                 material="color:#fff;shader:flat"></a-cursor>
+    </a-camera>
+    <a-entity laser-controls="hand:left"
+      raycaster="objects:.clickable;far:30"
+      line="color:#fff"></a-entity>
+    <a-entity laser-controls="hand:right"
+      raycaster="objects:.clickable;far:30"
+      line="color:#fff"></a-entity>
+  </a-entity>
+
+  <a-text id="status" value="Reference-style overview"
+          position="0 7 -2" align="center" width="10"
+          color="#ffffff" side="double"></a-text>
+</a-scene>
+
+<script src="js/farm.js"></script>
+</body>
+</html>

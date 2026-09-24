@@ -1,0 +1,114 @@
+3D MODEL GENERATION PROMPT — REFERENCE-MATCHED MINIATURE INDIAN FARM VR WORLD
+
+Use the supplied reference image as the PRIMARY VISUAL REFERENCE. The output must be a REAL, COMPLETE, NAVIGABLE 3D environment, NOT a 2D recreation, panorama, background plane, or flat image.
+
+GOAL
+Create a polished stylized low-poly miniature Indian rural farming village that matches the reference composition closely. The reference has a compact rectangular farm platform viewed from a high three-quarter/isometric angle. The entire farm is visible together, with crop fields in the foreground, farm buildings at the back, a tall windmill near the center, and tractors/machinery distributed across the right and center.
+
+MANDATORY COMPOSITION
+1. FARM PLATFORM
+- Compact rectangular/square farm plot.
+- Thin wooden fence around the outer edge.
+- Brown soil base.
+- Several straight dirt paths crossing the farm.
+- Keep the entire farm compact enough to see from an elevated overview camera.
+
+2. FOREGROUND CROPS — MOST IMPORTANT
+- The front-left/front-center must contain the largest crop area.
+- Create many dense, perfectly parallel rows of golden mature paddy/rice crops.
+- Next to them create bright green young paddy rows.
+- Include additional dark-green crop plots and freshly tilled brown soil plots.
+- Crop rows must be long, straight and clearly separated.
+- The foreground should visually dominate like the reference.
+
+3. LEFT REAR BUILDINGS
+- Large red traditional barn.
+- White/cream trim.
+- Large white X-shaped double barn doors.
+- Small windows.
+- Brown/orange pitched roof.
+- Beside it, a smaller cream/yellow rural shed.
+- Add small farm storage structures.
+
+4. CENTER REAR HOUSE
+- Main two-storey blue-and-white farmhouse.
+- White/light walls.
+- Blue-gray pitched roof.
+- Front porch with railing.
+- Visible windows.
+- Small balcony/upper-level details.
+- Place it behind the crop fields.
+
+5. RIGHT REAR HOUSE
+- Red two-storey farmhouse.
+- Bright blue pitched roof.
+- White window/trim details.
+- Small porch/balcony.
+- Place it to the right of the center farmhouse.
+
+6. WINDMILL — LARGE LANDMARK
+- Tall wooden windmill tower directly behind/near the center farmhouse.
+- Large circular multi-blade rotor at the top.
+- Rotor must be clearly visible from the overview.
+- Wooden tower legs and central hub.
+- Optional slow rotation animation.
+
+7. WATER TOWER
+- Small elevated cylindrical farm water tank near the windmill.
+- Tank supported by four narrow legs.
+- Clearly visible but smaller than the windmill.
+
+8. MACHINERY SHED — RIGHT SIDE
+- Long gray/cream agricultural machinery shed.
+- Large open front.
+- Several tractors and machines parked inside and outside.
+- Include blue, green, red and yellow tractors.
+- Include combine/harvester, trailer, plough/cultivator and farm tools.
+
+9. FARM EQUIPMENT
+- Multiple stylized tractors with large rear wheels and small front wheels.
+- At least 6 visible tractors/vehicles in the overview.
+- Place them on paths and around fields, matching the distribution of the reference.
+- Add trailers, hay bales, crates, sacks, barrels and equipment.
+
+10. CENTER-RIGHT DETAILS
+- Small fenced vegetable garden.
+- Small rectangular blue irrigation pond.
+- Water pump/irrigation equipment.
+- Hay bales and wooden crates.
+- Keep these details visually grouped.
+
+STYLE
+- Premium polished low-poly mobile-game art.
+- Warm, colorful, clean geometry.
+- Red barns, blue roofs, green/yellow crops, brown soil.
+- Soft shadows and ambient occlusion.
+- Slightly hand-painted/PBR materials.
+- Cute miniature-farm appearance.
+- No people.
+- No text.
+- No logos.
+- No UI.
+- No giant empty sky dominating the view.
+
+VR REQUIREMENTS
+- True 3D geometry.
+- Human player scale approximately 1.7–1.8 m.
+- Walkable dirt paths.
+- Collision on buildings and large objects.
+- WebXR/VR compatible.
+- Desktop fallback controls.
+- VR controller ray interaction.
+- Optimized for mobile/standalone VR.
+- Use instancing/LOD for repeated crops and distant objects.
+- Keep materials and polygon count reasonable.
+
+CAMERA REQUIREMENT
+The initial camera MUST start at an elevated three-quarter overview similar to the supplied reference so that the user immediately sees:
+golden foreground crop rows + green crop rows + red left barn + blue/white center farmhouse + windmill + water tank + red/blue-roof right house + machinery shed + multiple tractors.
+
+Do NOT start the player at ground level looking at empty sky.
+Provide a second first-person VR camera/mode for walking through the farm.
+
+OUTPUT
+Create optimized GLB/GLTF assets and/or a complete scene that can be loaded into A-Frame, Three.js, Unity or another WebXR engine. The result must feel like entering the miniature farm shown in the reference image.
