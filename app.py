@@ -288,7 +288,7 @@ def ar_farm_backup():
 @app.route("/paddy-farm/<path:filename>")
 def paddy_farm_files(filename):
     return send_from_directory(
-        "static/VR_Paddy_Farm_Fullscreen",
+        "static/background.jpg",
         filename
     )
 
